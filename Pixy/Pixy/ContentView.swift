@@ -64,6 +64,12 @@ struct PixelArtGridView: View {
                 Button("Export Creation") {
                     showingSaveOptions = true
                 }
+                
+                Button("Clear Board") {
+                    alertMessage = "Are you sure you want to clear the board? This action will permanently erase your creation if it has not been saved."
+                    showingAlert = true
+                }
+
 
                 if (showRowCoordinates || showColumnCoordinates), let coords = currentPixelCoordinates {
                     Text("(\(coords.row), \(coords.column))")
@@ -88,6 +94,25 @@ struct PixelArtGridView: View {
                 .cancel()
             ])
         }
+        .alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("Warning"),
+                message: Text(alertMessage),
+                primaryButton: .destructive(Text("Clear")) {
+                    clearBoard()
+                },
+                secondaryButton: .cancel(Text("Cancel"))
+            )
+        }
+
+    }
+
+    private func clearBoard() {
+        cellColors = Array(repeating: Array(repeating: backgroundColor, count: columns), count: rows)
+        history = []
+        historyIndex = -1
+        canUndo = false
+        canRedo = false
     }
 
     
@@ -167,9 +192,21 @@ struct PixelArtGridView: View {
     }
 
     private func applyChanges() {
-        // Apply any pending changes here
+        // Save current state to history
         saveToHistory()
+        
+        // Adjust cellColors array based on new dimensions
+        var newCellColors = Array(repeating: Array(repeating: backgroundColor, count: columns), count: rows)
+        
+        for i in 0..<min(rows, cellColors.count) {
+            for j in 0..<min(columns, cellColors[i].count) {
+                newCellColors[i][j] = cellColors[i][j]
+            }
+        }
+        
+        cellColors = newCellColors
     }
+
     
     // Update gridView to show coordinates
     private func gridView() -> some View {
@@ -383,9 +420,17 @@ struct PixelArtGridView: View {
                 rows = columns
             }
         }
-        rows = min(rows, 32)
-        columns = min(columns, 32)
-        cellColors = Array(repeating: Array(repeating: backgroundColor, count: columns), count: rows)
+        
+        // Adjust cellColors array while preserving existing colors
+        var newCellColors = Array(repeating: Array(repeating: backgroundColor, count: columns), count: rows)
+        
+        for i in 0..<min(rows, cellColors.count) {
+            for j in 0..<min(columns, cellColors[i].count) {
+                newCellColors[i][j] = cellColors[i][j]
+            }
+        }
+        
+        cellColors = newCellColors
     }
 
     private func toggleCellColor(row: Int, column: Int) {
