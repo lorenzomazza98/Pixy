@@ -1,4 +1,18 @@
-import SwiftUI
+
+ import SwiftUI
+
+enum DrawingTool {
+    case pen, verticalMirrorPen, paintBucket, paintAllSameColor, eraser, stroke,
+         rectangle, circle, move, shapeSelection, rectangleSelection, lassoSelection,
+         lighten, dithering, colorPicker
+}
+
+
+enum ImageFormat {
+    case jpeg, png
+}
+ 
+
 
 struct PixelArtGridView: View {
     @State private var rows = 16
@@ -26,7 +40,8 @@ struct PixelArtGridView: View {
     @State private var currentPixelCoordinates: (row: Int, column: Int)?
     @State private var isHovering = false
 
-
+    // Tools
+    @State private var currentTool: DrawingTool = .pen
 
     let gridSpacingOptions = [1, 2, 4, 8, 16, 32, 64]
 
@@ -268,6 +283,7 @@ struct PixelArtGridView: View {
             .padding()
         }
     }
+    
     private func coordinatesSection() -> some View {
         VStack(alignment: .leading, spacing: 15) {
             Toggle("Show Row Coordinates", isOn: $showRowCoordinates)
@@ -505,9 +521,6 @@ struct PixelArtGridView: View {
         .frame(width: 300, height: 300 * CGFloat(rows) / CGFloat(columns))
     }}
 
-enum ImageFormat {
-    case jpeg, png
-}
 
 class ImageSaver: NSObject {
     func writeToPhotoAlbum(image: UIImage) {
@@ -523,13 +536,18 @@ class ImageSaver: NSObject {
     }
 }
 
+
+
 extension Array {
     subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }
+ 
 
 #Preview {
     PixelArtGridView()
     
 }
+
+
