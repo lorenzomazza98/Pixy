@@ -4,7 +4,11 @@ A digital tool designed in VisionOS for pixel art enthusiasts and artists to cra
 
 ## Screenshots
 
-
+![iScreen Shoter - 20250405095252546](https://github.com/user-attachments/assets/7cf4d252-d924-4c3c-84a1-88c5b3e48546)
+![iScreen Shoter - 20250405095049928](https://github.com/user-attachments/assets/949cfc02-7ad3-4755-8618-e4c9e02331e6)
+![iScreen Shoter - 20250405094623543](https://github.com/user-attachments/assets/d582fd69-65b9-4c54-9050-7cc6926f34de)
+![iScreen Shoter - 20250405094559489](https://github.com/user-attachments/assets/09a9e4d0-92a5-4d06-bf3f-dc5cc75c066b)
+![iScreen Shoter - 20250405094533389](https://github.com/user-attachments/assets/eb3779af-d4f0-406a-a9a8-72923197b346)
 
 ## Features
 - ** DEFAULT NUMBER FOR PIXELS IN THE GRID **: Sets the initial number of pixels in the grid to define the canvas size.  
