@@ -64,5 +64,5 @@ This project is licensed under the MIT License. You’re free to use, modify, an
 ## Contact
 
 - **Author**: Lorenzo Mazza
-- **Email**: [lorenzomazza98@icloud.com](mailto:lorenzo.mazza.work@gmail.com)
+- **Email**: [lorenzo.mazza.work@gmail.com](mailto:lorenzo.mazza.work@gmail.com)
 - **GitHub**: [https://github.com/lorenzomazza98](https://github.com/lorenzomazza98)
