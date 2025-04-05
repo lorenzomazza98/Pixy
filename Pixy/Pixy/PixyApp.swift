@@ -13,5 +13,6 @@ struct PixelArtApp: App {
         WindowGroup {
             PixelArtGridView()
         }
+        .windowStyle(.plain)
     }
 }
