@@ -1,4 +1,4 @@
-# Pixy
+# PixyArt
 
 A digital tool designed in VisionOS for pixel art enthusiasts and artists to craft their own unique creations.
 
@@ -38,12 +38,12 @@ A digital tool designed in VisionOS for pixel art enthusiasts and artists to cra
 ### Steps:
 1. Clone this repository:
    ```bash
-   git clone https://github.com/lorenzomazza98/Pixy.git
+   git clone https://github.com/lorenzomazza98/PixyArt.git
    ```
 2. Open the project in Xcode:
    ```bash
-   cd Pixy
-   open Pixy.xcodeproj
+   cd PixyArt
+   open PixyArt.xcodeproj
    ```
 3. Choose Apple Vision Pro simulator or connect your personal Apple Vision Pro.
 4. Build and run the app:
